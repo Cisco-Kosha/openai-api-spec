@@ -690,7 +690,7 @@
         }
       }
     },
-    "/models": {
+    "/v1/models": {
       "get": {
         "operationId": "listModels",
         "tags": [
