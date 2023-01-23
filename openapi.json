@@ -17,7 +17,7 @@
     }
   ],
   "paths": {
-    "/completions": {
+    "/v1/completions": {
       "post": {
         "operationId": "createCompletion",
         "tags": [
@@ -60,7 +60,7 @@
         }
       }
     },
-    "/edits": {
+    "/v1/edits": {
       "post": {
         "operationId": "createEdit",
         "tags": [
@@ -103,7 +103,7 @@
         }
       }
     },
-    "/images/generations": {
+    "/v1/images/generations": {
       "post": {
         "operationId": "createImage",
         "tags": [
@@ -146,7 +146,7 @@
         }
       }
     },
-    "/images/edits": {
+    "/v1/images/edits": {
       "post": {
         "operationId": "createImageEdit",
         "tags": [
@@ -188,7 +188,7 @@
         }
       }
     },
-    "/images/variations": {
+    "/v1/images/variations": {
       "post": {
         "operationId": "createImageVariation",
         "tags": [
@@ -230,7 +230,7 @@
         }
       }
     },
-    "/embeddings": {
+    "/v1/embeddings": {
       "post": {
         "operationId": "createEmbedding",
         "tags": [
@@ -273,7 +273,7 @@
         }
       }
     },
-    "/files": {
+    "/v1/files": {
       "get": {
         "operationId": "listFiles",
         "tags": [
@@ -345,7 +345,7 @@
         }
       }
     },
-    "/files/{file_id}": {
+    "/v1/files/{file_id}": {
       "delete": {
         "operationId": "deleteFile",
         "tags": [
@@ -471,7 +471,7 @@
         }
       }
     },
-    "/fine-tunes": {
+    "/v1/fine-tunes": {
       "post": {
         "operationId": "createFineTune",
         "tags": [
@@ -545,7 +545,7 @@
         }
       }
     },
-    "/fine-tunes/{fine_tune_id}": {
+    "/v1/fine-tunes/{fine_tune_id}": {
       "get": {
         "operationId": "retrieveFineTune",
         "tags": [
@@ -590,7 +590,7 @@
         }
       }
     },
-    "/fine-tunes/{fine_tune_id}/cancel": {
+    "/v1/fine-tunes/{fine_tune_id}/cancel": {
       "post": {
         "operationId": "cancelFineTune",
         "tags": [
@@ -635,7 +635,7 @@
         }
       }
     },
-    "/fine-tunes/{fine_tune_id}/events": {
+    "/v1/fine-tunes/{fine_tune_id}/events": {
       "get": {
         "operationId": "listFineTuneEvents",
         "tags": [
@@ -722,7 +722,7 @@
         }
       }
     },
-    "/models/{model}": {
+    "/v1/models/{model}": {
       "get": {
         "operationId": "retrieveModel",
         "tags": [
@@ -809,7 +809,7 @@
         }
       }
     },
-    "/moderations": {
+    "/v1/moderations": {
       "post": {
         "operationId": "createModeration",
         "tags": [
