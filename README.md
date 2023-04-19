@@ -1,49 +1,38 @@
 # Kosha OpenAI Connector
 
-OpenAI allows you to work with various artificial intelligence models
+![OpenAI](images/openai-logo.png)
 
-The connector APIs allow you to perform 'RESTful' operations such as reading, modifying, adding or deleting data from your projects. The APIs also support Cross-Origin Resource Sharing (CORS).
+OpenAI allows you to work with various artificial intelligence models for a variety of tasks, including—but not limited to—content generation,semantic search and classification, translation, and data extraction.
 
+## Useful Actions
 
+Using the Kosha OpenAI connector, you perform REST API operations such as create completions, create images, and convert audio into text. 
 
-This Connector API exposes REST API endpoints to perform any operations on OpenAI's APIs in a simple, quick and intuitive fashion.
+Refer to the Kosha OpenAI connector [API specification](openapi.json) for details.
 
-It describes various API operations, related request and response structures, and error codes.
+* Chat: Given a list of messages describing a conversation, the model will return a response.
+* Completions: Given a prompt, the model will return one or more predicted completions, and can also return the probabilities of alternative tokens at each position.
+* Audio: Transcribe audio into a the input language or translate audio into English.
+* Images: Given a prompt and/or an input image, the model will generate a new image.
 
-## Build
+## Example Usage
 
-To build the project binary, run
+The following request creates a completion for the provided prompt:
+
 ```
-    go build -o main .
-
+curl https://api.openai.com/v1/completions \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $OPENAI_API_KEY" \
+  -d '{
+    "model": "text-davinci-003",
+    "prompt": "Say this is a test",
+    "max_tokens": 7,
+    "temperature": 0
+  }'
 ```
+## Authentication
 
-## Run locally
+The OpenAI API uses API keys for authentication. You can [retrieve your API key](https://platform.openai.com/account/api-keys) from the OpenAPI platform. 
 
-To run the project, simply provide env variables to supply the API key and Freshdesk domain name.
+Include your API key in all requests in an Authorization HTTP header: `Authorization: Bearer OPENAI_API_KEY`.
 
-
-```bash
-go build -o main .
-API_KEY=<API_KEY> AUTH_TYPE=<AUTH_TYPE> SERVER_URL=<SERVER_URL> ./main
-```
-
-This will start a worker and expose the API on port `8015` on the host machine
-
-Swagger docs is available at `https://localhost:8015/docs`
-
-## Generating Swagger Documentation
-
-To generate `swagger.json` and `swagger.yaml` files based on the API documentation, simple run -
-
-```bash
-go install github.com/swaggo/swag/cmd/swag@latest
-swag init -g main.go --parseDependency --parseInternal
-```
-
-To generate OpenAPISpec version 3 from Swagger 2.0 specification, run -
-
-```bash
-npm i api-spec-converter
-npx api-spec-converter --from=swagger_2 --to=openapi_3 --syntax=json ./docs/swagger.json > openapi.json
-```
