@@ -4,16 +4,42 @@
 
 OpenAI allows you to work with various artificial intelligence models for a variety of tasks, including—but not limited to—content generation,semantic search and classification, translation, and data extraction.
 
+The Kosha OpenAI connector enables you to perform REST API operations from the OpenAI API in your Kosha workflow or custom application. Using the Kosha OpenAI connector, you can directly access the OpenAI platform to:
+
+* Create completions for provided prompts
+* Transcribe audio into a the input language or translate audio into English.
+* Generate new images from prompts and inputs r
+
 ## Useful Actions
 
-Using the Kosha OpenAI connector, you perform REST API operations such as create completions, create images, and convert audio into text. 
+You can use the Kosha OpenAI connector to perform key actions from the OpenAI API.
 
 Refer to the Kosha OpenAI connector [API specification](openapi.json) for details.
 
-* Chat: Given a list of messages describing a conversation, the model will return a response.
-* Completions: Given a prompt, the model will return one or more predicted completions, and can also return the probabilities of alternative tokens at each position.
-* Audio: Transcribe audio into a the input language or translate audio into English.
-* Images: Given a prompt and/or an input image, the model will generate a new image.
+### Completions
+
+Create completions from provided prompts and parameters
+
+### Images
+
+* Generate images
+* Generate a variation of a given image
+* Generate an edited or extended image given an original input and prompt
+
+### Fine tunes
+
+* Create a job that fine tunes a specified model from a given dataset
+* List your org's fine-tuning jobs
+* Get fine-grained status for a fine-tuning job
+
+### Models
+
+* List available models and provide basic information about each
+* Retrive a model instance
+
+### Moderation
+
+Classify text that violates OpenAI's content policy
 
 ## Example Usage
 
