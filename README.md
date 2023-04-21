@@ -7,8 +7,8 @@ OpenAI allows you to work with various artificial intelligence models for a vari
 The Kosha OpenAI connector enables you to perform REST API operations from the OpenAI API in your Kosha workflow or custom application. Using the Kosha OpenAI connector, you can directly access the OpenAI platform to:
 
 * Create completions for provided prompts
-* Transcribe audio into a the input language or translate audio into English.
-* Generate new images from prompts and inputs r
+* Transcribe audio into a the input language or translate audio into English
+* Generate new images from prompts and inputs 
 
 ## Useful Actions
 
