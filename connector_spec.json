@@ -3,12 +3,12 @@
   "fields": [
     {
       "field": "BEARER_TOKEN",
-      "displayName": "OpenAI Bearer Token",
+      "displayName": "OpenAI API Key",
       "type": "String",
       "minLength": 4,
       "maxLength": 60,
       "required": true,
-      "description": "OpenAI Bearer Token",
+      "description": "OpenAI API Key",
       "example": "sk-BdhDJ80L2C9DoQ9SKh69T3ClbkFJSrRLC2OonKUvvEAl5OUJ",
       "helpSection": "You can generate a Bearer Token by opening Open AI, navigating to View API Keys. Then click \"Create new secret key\". "
     },
