@@ -17,85 +17,7 @@
     }
   ],
   "paths": {
-    "/engines": {
-      "get": {
-        "operationId": "listEngines",
-        "deprecated": true,
-        "tags": [
-          "OpenAI"
-        ],
-        "summary": "Lists the currently available (non-finetuned) models, and provides basic information about each one such as the owner and availability.",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ListEnginesResponse"
-                }
-              }
-            }
-          }
-        },
-        "x-oaiMeta": {
-          "name": "List engines",
-          "group": "engines",
-          "path": "list",
-          "examples": {
-            "curl": "curl https://api.openai.com/v1/engines \\\n  -H 'Authorization: Bearer YOUR_API_KEY'\n",
-            "python": "import os\nimport openai\nopenai.api_key = os.getenv(\"OPENAI_API_KEY\")\nopenai.Engine.list()\n",
-            "node.js": "const { Configuration, OpenAIApi } = require(\"openai\");\nconst configuration = new Configuration({\n  apiKey: process.env.OPENAI_API_KEY,\n});\nconst openai = new OpenAIApi(configuration);\nconst response = await openai.listEngines();\n"
-          },
-          "response": "{\n  \"data\": [\n    {\n      \"id\": \"engine-id-0\",\n      \"object\": \"engine\",\n      \"owner\": \"organization-owner\",\n      \"ready\": true\n    },\n    {\n      \"id\": \"engine-id-2\",\n      \"object\": \"engine\",\n      \"owner\": \"organization-owner\",\n      \"ready\": true\n    },\n    {\n      \"id\": \"engine-id-3\",\n      \"object\": \"engine\",\n      \"owner\": \"openai\",\n      \"ready\": false\n    },\n  ],\n  \"object\": \"list\"\n}\n"
-        }
-      }
-    },
-    "/engines/{engine_id}": {
-      "get": {
-        "operationId": "retrieveEngine",
-        "deprecated": true,
-        "tags": [
-          "OpenAI"
-        ],
-        "summary": "Retrieves a model instance, providing basic information about it such as the owner and availability.",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "engine_id",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "davinci"
-            },
-            "description": "The ID of the engine to use for this request\n"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Engine"
-                }
-              }
-            }
-          }
-        },
-        "x-oaiMeta": {
-          "name": "Retrieve engine",
-          "group": "engines",
-          "path": "retrieve",
-          "examples": {
-            "curl": "curl https://api.openai.com/v1/engines/VAR_model_id \\\n  -H 'Authorization: Bearer YOUR_API_KEY'\n",
-            "python": "import os\nimport openai\nopenai.api_key = os.getenv(\"OPENAI_API_KEY\")\nopenai.Engine.retrieve(\"VAR_model_id\")\n",
-            "node.js": "const { Configuration, OpenAIApi } = require(\"openai\");\nconst configuration = new Configuration({\n  apiKey: process.env.OPENAI_API_KEY,\n});\nconst openai = new OpenAIApi(configuration);\nconst response = await openai.retrieveEngine(\"VAR_model_id\");\n"
-          },
-          "response": "{\n  \"id\": \"VAR_model_id\",\n  \"object\": \"engine\",\n  \"owner\": \"openai\",\n  \"ready\": true\n}\n"
-        }
-      }
-    },
-    "/completions": {
+    "/v1/completions": {
       "post": {
         "operationId": "createCompletion",
         "tags": [
@@ -138,7 +60,7 @@
         }
       }
     },
-    "/chat/completions": {
+    "/v1/chat/completions": {
       "post": {
         "operationId": "createChatCompletion",
         "tags": [
@@ -182,7 +104,7 @@
         }
       }
     },
-    "/edits": {
+    "/v1/edits": {
       "post": {
         "operationId": "createEdit",
         "tags": [
@@ -225,7 +147,7 @@
         }
       }
     },
-    "/images/generations": {
+    "/v1/images/generations": {
       "post": {
         "operationId": "createImage",
         "tags": [
@@ -269,7 +191,7 @@
         }
       }
     },
-    "/images/edits": {
+    "/v1/images/edits": {
       "post": {
         "operationId": "createImageEdit",
         "tags": [
@@ -312,7 +234,7 @@
         }
       }
     },
-    "/images/variations": {
+    "/v1/images/variations": {
       "post": {
         "operationId": "createImageVariation",
         "tags": [
@@ -355,7 +277,7 @@
         }
       }
     },
-    "/embeddings": {
+    "/v1/embeddings": {
       "post": {
         "operationId": "createEmbedding",
         "tags": [
@@ -398,7 +320,7 @@
         }
       }
     },
-    "/audio/transcriptions": {
+    "/v1/audio/transcriptions": {
       "post": {
         "operationId": "createTranscription",
         "tags": [
@@ -442,7 +364,7 @@
         }
       }
     },
-    "/audio/translations": {
+    "/v1/audio/translations": {
       "post": {
         "operationId": "createTranslation",
         "tags": [
@@ -486,7 +408,7 @@
         }
       }
     },
-    "/engines/{engine_id}/search": {
+    "/v1/engines/{engine_id}/search": {
       "post": {
         "operationId": "createSearch",
         "deprecated": true,
@@ -542,7 +464,7 @@
         }
       }
     },
-    "/files": {
+    "/v1/files": {
       "get": {
         "operationId": "listFiles",
         "tags": [
@@ -614,7 +536,7 @@
         }
       }
     },
-    "/files/{file_id}": {
+    "/v1/files/{file_id}": {
       "delete": {
         "operationId": "deleteFile",
         "tags": [
@@ -698,7 +620,7 @@
         }
       }
     },
-    "/files/{file_id}/content": {
+    "/v1/files/{file_id}/content": {
       "get": {
         "operationId": "downloadFile",
         "tags": [
@@ -740,95 +662,7 @@
         }
       }
     },
-    "/answers": {
-      "post": {
-        "operationId": "createAnswer",
-        "deprecated": true,
-        "tags": [
-          "OpenAI"
-        ],
-        "summary": "Answers the specified question using the provided documents and examples.\n\nThe endpoint first [searches](/docs/api-reference/searches) over provided documents or files to find relevant context. The relevant context is combined with the provided examples and question to create the prompt for [completion](/docs/api-reference/completions).\n",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateAnswerRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CreateAnswerResponse"
-                }
-              }
-            }
-          }
-        },
-        "x-oaiMeta": {
-          "name": "Create answer",
-          "group": "answers",
-          "path": "create",
-          "examples": {
-            "curl": "curl https://api.openai.com/v1/answers \\\n  -X POST \\\n  -H \"Authorization: Bearer YOUR_API_KEY\" \\\n  -H 'Content-Type: application/json' \\\n  -d '{\n    \"documents\": [\"Puppy A is happy.\", \"Puppy B is sad.\"],\n    \"question\": \"which puppy is happy?\",\n    \"search_model\": \"ada\",\n    \"model\": \"curie\",\n    \"examples_context\": \"In 2017, U.S. life expectancy was 78.6 years.\",\n    \"examples\": [[\"What is human life expectancy in the United States?\",\"78 years.\"]],\n    \"max_tokens\": 5,\n    \"stop\": [\"\\n\", \"<|endoftext|>\"]\n  }'\n",
-            "python": "import os\nimport openai\nopenai.api_key = os.getenv(\"OPENAI_API_KEY\")\nopenai.Answer.create(\n  search_model=\"ada\",\n  model=\"curie\",\n  question=\"which puppy is happy?\",\n  documents=[\"Puppy A is happy.\", \"Puppy B is sad.\"],\n  examples_context=\"In 2017, U.S. life expectancy was 78.6 years.\",\n  examples=[[\"What is human life expectancy in the United States?\",\"78 years.\"]],\n  max_tokens=5,\n  stop=[\"\\n\", \"<|endoftext|>\"],\n)\n",
-            "node.js": "const { Configuration, OpenAIApi } = require(\"openai\");\nconst configuration = new Configuration({\n  apiKey: process.env.OPENAI_API_KEY,\n});\nconst openai = new OpenAIApi(configuration);\nconst response = await openai.createAnswer({\n  search_model: \"ada\",\n  model: \"curie\",\n  question: \"which puppy is happy?\",\n  documents: [\"Puppy A is happy.\", \"Puppy B is sad.\"],\n  examples_context: \"In 2017, U.S. life expectancy was 78.6 years.\",\n  examples: [[\"What is human life expectancy in the United States?\",\"78 years.\"]],\n  max_tokens: 5,\n  stop: [\"\\n\", \"<|endoftext|>\"],\n});\n"
-          },
-          "parameters": "{\n  \"documents\": [\"Puppy A is happy.\", \"Puppy B is sad.\"],\n  \"question\": \"which puppy is happy?\",\n  \"search_model\": \"ada\",\n  \"model\": \"curie\",\n  \"examples_context\": \"In 2017, U.S. life expectancy was 78.6 years.\",\n  \"examples\": [[\"What is human life expectancy in the United States?\",\"78 years.\"]],\n  \"max_tokens\": 5,\n  \"stop\": [\"\\n\", \"<|endoftext|>\"]\n}\n",
-          "response": "{\n  \"answers\": [\n    \"puppy A.\"\n  ],\n  \"completion\": \"cmpl-2euVa1kmKUuLpSX600M41125Mo9NI\",\n  \"model\": \"curie:2020-05-03\",\n  \"object\": \"answer\",\n  \"search_model\": \"ada\",\n  \"selected_documents\": [\n    {\n      \"document\": 0,\n      \"text\": \"Puppy A is happy. \"\n    },\n    {\n      \"document\": 1,\n      \"text\": \"Puppy B is sad. \"\n    }\n  ]\n}\n"
-        }
-      }
-    },
-    "/classifications": {
-      "post": {
-        "operationId": "createClassification",
-        "deprecated": true,
-        "tags": [
-          "OpenAI"
-        ],
-        "summary": "Classifies the specified `query` using provided examples.\n\nThe endpoint first [searches](/docs/api-reference/searches) over the labeled examples\nto select the ones most relevant for the particular query. Then, the relevant examples\nare combined with the query to construct a prompt to produce the final label via the\n[completions](/docs/api-reference/completions) endpoint.\n\nLabeled examples can be provided via an uploaded `file`, or explicitly listed in the\nrequest using the `examples` parameter for quick tests and small scale use cases.\n",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateClassificationRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CreateClassificationResponse"
-                }
-              }
-            }
-          }
-        },
-        "x-oaiMeta": {
-          "name": "Create classification",
-          "group": "classifications",
-          "path": "create",
-          "examples": {
-            "curl": "curl https://api.openai.com/v1/classifications \\\n  -X POST \\\n  -H \"Authorization: Bearer YOUR_API_KEY\" \\\n  -H 'Content-Type: application/json' \\\n  -d '{\n    \"examples\": [\n      [\"A happy moment\", \"Positive\"],\n      [\"I am sad.\", \"Negative\"],\n      [\"I am feeling awesome\", \"Positive\"]],\n    \"query\": \"It is a raining day :(\",\n    \"search_model\": \"ada\",\n    \"model\": \"curie\",\n    \"labels\":[\"Positive\", \"Negative\", \"Neutral\"]\n  }'\n",
-            "python": "import os\nimport openai\nopenai.api_key = os.getenv(\"OPENAI_API_KEY\")\nopenai.Classification.create(\n  search_model=\"ada\",\n  model=\"curie\",\n  examples=[\n    [\"A happy moment\", \"Positive\"],\n    [\"I am sad.\", \"Negative\"],\n    [\"I am feeling awesome\", \"Positive\"]\n  ],\n  query=\"It is a raining day :(\",\n  labels=[\"Positive\", \"Negative\", \"Neutral\"],\n)\n",
-            "node.js": "const { Configuration, OpenAIApi } = require(\"openai\");\nconst configuration = new Configuration({\n  apiKey: process.env.OPENAI_API_KEY,\n});\nconst openai = new OpenAIApi(configuration);\nconst response = await openai.createClassification({\n  search_model: \"ada\",\n  model: \"curie\",\n  examples: [\n    [\"A happy moment\", \"Positive\"],\n    [\"I am sad.\", \"Negative\"],\n    [\"I am feeling awesome\", \"Positive\"]\n  ],\n  query:\"It is a raining day :(\",\n  labels: [\"Positive\", \"Negative\", \"Neutral\"],\n});\n"
-          },
-          "parameters": "{\n  \"examples\": [\n    [\"A happy moment\", \"Positive\"],\n    [\"I am sad.\", \"Negative\"],\n    [\"I am feeling awesome\", \"Positive\"]\n  ],\n  \"labels\": [\"Positive\", \"Negative\", \"Neutral\"],\n  \"query\": \"It is a raining day :(\",\n  \"search_model\": \"ada\",\n  \"model\": \"curie\"\n}\n",
-          "response": "{\n  \"completion\": \"cmpl-2euN7lUVZ0d4RKbQqRV79IiiE6M1f\",\n  \"label\": \"Negative\",\n  \"model\": \"curie:2020-05-03\",\n  \"object\": \"classification\",\n  \"search_model\": \"ada\",\n  \"selected_examples\": [\n    {\n      \"document\": 1,\n      \"label\": \"Negative\",\n      \"text\": \"I am sad.\"\n    },\n    {\n      \"document\": 0,\n      \"label\": \"Positive\",\n      \"text\": \"A happy moment\"\n    },\n    {\n      \"document\": 2,\n      \"label\": \"Positive\",\n      \"text\": \"I am feeling awesome\"\n    }\n  ]\n}\n"
-        }
-      }
-    },
-    "/fine-tunes": {
+    "/v1/fine-tunes": {
       "post": {
         "operationId": "createFineTune",
         "tags": [
@@ -900,7 +734,7 @@
         }
       }
     },
-    "/fine-tunes/{fine_tune_id}": {
+    "/v1/fine-tunes/{fine_tune_id}": {
       "get": {
         "operationId": "retrieveFineTune",
         "tags": [
@@ -944,7 +778,7 @@
         }
       }
     },
-    "/fine-tunes/{fine_tune_id}/cancel": {
+    "/v1/fine-tunes/{fine_tune_id}/cancel": {
       "post": {
         "operationId": "cancelFineTune",
         "tags": [
@@ -988,7 +822,7 @@
         }
       }
     },
-    "/fine-tunes/{fine_tune_id}/events": {
+    "/v1/fine-tunes/{fine_tune_id}/events": {
       "get": {
         "operationId": "listFineTuneEvents",
         "tags": [
@@ -1042,7 +876,7 @@
         }
       }
     },
-    "/models": {
+    "/v1/models": {
       "get": {
         "operationId": "listModels",
         "tags": [
@@ -1074,7 +908,7 @@
         }
       }
     },
-    "/models/{model}": {
+    "/v1/models/{model}": {
       "get": {
         "operationId": "retrieveModel",
         "tags": [
@@ -1160,7 +994,7 @@
         }
       }
     },
-    "/moderations": {
+    "/v1/moderations": {
       "post": {
         "operationId": "createModeration",
         "tags": [
