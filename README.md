@@ -59,6 +59,3 @@ curl https://api.openai.com/v1/completions \
 ## Authentication
 
 To authenticate when provisioning the Kosha OpenAI connector, you need your OpenAI API key. You can [retrieve your API key](https://platform.openai.com/account/api-keys) from the OpenAPI platform. 
-
-Include your API key in all requests in an Authorization HTTP header: `Authorization: Bearer OPENAI_API_KEY`.
-
