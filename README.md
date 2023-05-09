@@ -1,49 +1,46 @@
 # Kosha OpenAI Connector
 
-OpenAI allows you to work with various artificial intelligence models
+![OpenAI](images/openai-logo.png)
 
-The connector APIs allow you to perform 'RESTful' operations such as reading, modifying, adding or deleting data from your projects. The APIs also support Cross-Origin Resource Sharing (CORS).
+OpenAI allows you to work with various artificial intelligence models for a variety of tasks, including—but not limited to—content generation,semantic search and classification, translation, and data extraction.
 
+The Kosha OpenAI connector enables you to perform REST API operations from the OpenAI API in your Kosha workflow or custom application. Using the Kosha OpenAI connector, you can directly access the OpenAI platform to:
 
+* Create completions for provided prompts
+* Transcribe audio into a the input language or translate audio into English
+* Generate new images from prompts and inputs 
 
-This Connector API exposes REST API endpoints to perform any operations on OpenAI's APIs in a simple, quick and intuitive fashion.
+## Useful Actions
 
-It describes various API operations, related request and response structures, and error codes.
+You can use the Kosha OpenAI connector to perform key actions from the OpenAI API.
 
-## Build
+Refer to the Kosha OpenAI connector [API specification](openapi.json) for details.
 
-To build the project binary, run
-```
-    go build -o main .
+### Completions
 
-```
+Create completions from provided prompts and parameters
 
-## Run locally
+### Images
 
-To run the project, simply provide env variables to supply the API key and Freshdesk domain name.
+* Generate images
+* Generate a variation of a given image
+* Generate an edited or extended image given an original input and prompt
 
+### Fine tunes
 
-```bash
-go build -o main .
-API_KEY=<API_KEY> AUTH_TYPE=<AUTH_TYPE> SERVER_URL=<SERVER_URL> ./main
-```
+* Create a job that fine tunes a specified model from a given dataset
+* List your org's fine-tuning jobs
+* Get fine-grained status for a fine-tuning job
 
-This will start a worker and expose the API on port `8015` on the host machine
+### Models
 
-Swagger docs is available at `https://localhost:8015/docs`
+* List available models and provide basic information about each
+* Retrive a model instance
 
-## Generating Swagger Documentation
+### Moderation
 
-To generate `swagger.json` and `swagger.yaml` files based on the API documentation, simple run -
+Classify text that violates OpenAI's content policy
 
-```bash
-go install github.com/swaggo/swag/cmd/swag@latest
-swag init -g main.go --parseDependency --parseInternal
-```
+## Authentication
 
-To generate OpenAPISpec version 3 from Swagger 2.0 specification, run -
-
-```bash
-npm i api-spec-converter
-npx api-spec-converter --from=swagger_2 --to=openapi_3 --syntax=json ./docs/swagger.json > openapi.json
-```
+To authenticate when provisioning the Kosha OpenAI connector, you need your OpenAI API key. You can [retrieve your API key](https://platform.openai.com/account/api-keys) from the OpenAPI platform. 
