@@ -41,21 +41,6 @@ Create completions from provided prompts and parameters
 
 Classify text that violates OpenAI's content policy
 
-## Example Usage
-
-The following request creates a completion for the provided prompt:
-
-```
-curl https://api.openai.com/v1/completions \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $OPENAI_API_KEY" \
-  -d '{
-    "model": "text-davinci-003",
-    "prompt": "Say this is a test",
-    "max_tokens": 7,
-    "temperature": 0
-  }'
-```
 ## Authentication
 
 To authenticate when provisioning the Kosha OpenAI connector, you need your OpenAI API key. You can [retrieve your API key](https://platform.openai.com/account/api-keys) from the OpenAPI platform. 
