@@ -1,7 +1,5 @@
 # Kosha OpenAI Connector
 
-![OpenAI](https://raw.githubusercontent.com/Cisco-Kosha/openai-api-spec/main/images/openai-logo.png)
-
 OpenAI allows you to work with various artificial intelligence models for a variety of tasks, including—but not limited to—content generation,semantic search and classification, translation, and data extraction.
 
 The Kosha OpenAI connector enables you to perform REST API operations from the OpenAI API in your Kosha workflow or custom application. Using the Kosha OpenAI connector, you can directly access the OpenAI platform to:
