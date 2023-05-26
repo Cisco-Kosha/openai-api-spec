@@ -41,4 +41,10 @@ Classify text that violates OpenAI's content policy
 
 ## Authentication
 
-To authenticate when provisioning the Kosha OpenAI connector, you need your OpenAI API key. You can [retrieve your API key](https://platform.openai.com/account/api-keys) from the OpenAPI platform. 
+To authenticate when provisioning the Kosha OpenAI connector, you need your OpenAI API key. 
+
+## Kosha Connector Open Source Development
+
+All connectors Kosha shares on the marketplace are open source. We believe in fostering collaboration and open development. Everyone is welcome to contribute their ideas, improvements, and feedback for any Kosha connector. We encourage community engagement and appreciate any contributions that align with our goals of an open and collaborative API management platform.
+
+Refer to the contribution guidelines for details.
